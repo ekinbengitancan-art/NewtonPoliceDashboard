@@ -18,11 +18,19 @@ declare module "next-auth/jwt" {
 
 export const authOptions: NextAuthOptions = {
   providers: [
-    DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID!,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-      authorization: { params: { scope: "identify guilds" } },
-    }),
+DiscordProvider({
+  id: "discord",
+  name: "Discord",
+  clientId: process.env.DISCORD_CLIENT_ID!,
+  clientSecret: process.env.DISCORD_CLIENT_SECRET!,
+  authorization: {
+    url: "https://discord.com/api/oauth2/authorize",
+    params: { scope: "identify guilds" },
+  },
+  token: "https://discord.com/api/oauth2/token",
+  userinfo: "https://discord.com/api/users/@me",
+  checks: ["state"],
+}),
   ],
   callbacks: {
     async session({ session, token }) {
