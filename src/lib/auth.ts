@@ -1,4 +1,4 @@
-import type { DefaultSession, NextAuthOptions } from "next-auth";
+﻿import type { DefaultSession, NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 
 declare module "next-auth" {
@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
       idToken: false,
       authorization: {
         params: {
-          scope: "identify guilds",
+          scope: "identify guilds guilds.members.read",
         },
       },
     }),

@@ -2114,3 +2114,149 @@ select {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Notification Center */
+.dash-header-actions {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--error);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.notification-panel {
+  position: relative;
+  z-index: 20;
+  width: min(100%, 520px);
+  margin: 0 0 22px auto;
+  padding: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--background-elev);
+  box-shadow: var(--shadow-card);
+}
+
+.notification-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.notification-panel-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.notification-panel-header p {
+  margin-top: 3px;
+  color: var(--foreground-muted);
+  font-size: 12px;
+}
+
+.notification-mark-all {
+  border: 0;
+  background: transparent;
+  color: var(--primary-soft);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.notification-mark-all:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+  text-align: left;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background: var(--surface-hover);
+}
+
+.notification-item.read {
+  opacity: 0.62;
+}
+
+.notification-indicator {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.notification-item.read .notification-indicator {
+  background: var(--foreground-dim);
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.notification-content strong {
+  font-size: 13px;
+}
+
+.notification-content > span {
+  color: var(--foreground-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.notification-content small {
+  color: var(--foreground-dim);
+  font-size: 10px;
+}
+
+.notification-empty {
+  padding: 28px 10px;
+  color: var(--foreground-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .notification-panel {
+    width: 100%;
+    padding: 14px;
+  }
+}
